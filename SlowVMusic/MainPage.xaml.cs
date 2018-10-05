@@ -368,6 +368,7 @@ namespace SlowVMusic
             stackPanel.Children.Add(textBoxName);
             stackPanel.Children.Add(textBoxPass);
             stackPanel.Children.Add(firstName);
+            stackPanel.Children.Add(lastName);
             stackPanel.Children.Add(imageUrl);
             stackPanel.Children.Add(Image);
             stackPanel.Children.Add(btn_CapturePhoto);
@@ -392,6 +393,15 @@ namespace SlowVMusic
             dialogRegister.PrimaryButtonText = "Đăng ký";
             dialogRegister.PrimaryButtonStyle = btnPrimaryStyle;
             dialogRegister.CloseButtonStyle = btnCloseStyle;
+            dialogRegister.PrimaryButtonClick += async (s, args) =>
+            {
+                ContentDialogButtonClickDeferral deferral = args.GetDeferral();
+                //await Task.Delay(3000);  //Here I just wait 3 seconds
+
+                // Xu ly nut đăng ký ben trong nay.
+                Debug.WriteLine("SlowV");
+                deferral.Complete();
+            };
             // Ẩn dialog SignIn.
             dialogLogin.Hide();
             await dialogRegister.ShowAsync();
